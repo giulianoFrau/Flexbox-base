@@ -1,0 +1,29 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+  
+  .container {
+    background-color:#ccc;
+    padding:10px;
+    display: flex; /*prima proprieta per usare flexbox (display flex al padre)*/
+    flex-direction: row; /*default row,mette gli elementi in riga  ,column in colonna uno sotto l'altro*/
+    justify-content: center; /*definisce la posizione degli elementi (centro dx,sx con spazio se non c'e margin negli elementi come a riga 18)*/
+    align-items: center; /*gli elementi si posizionano al centro rispetto i2 , con flex-start all inizio e cosi via (prova da inspector se non ricordi)
+    di default e streth e tutti gli elementi saranno uguali xk tutti gli elementi eccetto 2 che è il nostro example item vogliono essere della stessa altezza di 2*/
+  }
+  
+  .item {
+    background-color:#f1425d;
+    padding:30px;
+    margin: 30px;
+    color:white;
+    font-size: 40px;
+  }
+
+  .i2{
+      height: 200px; /*dando solo l'altezza verranno allungati tutti gli elementi xk sono sullo stesso asse principale,
+      usando sul container align-item (riga13)questo verrà risolto in quanto muoverà gli elementi sull asse X e cosi sara allungato solo il numero 2*/
+  }
+  
