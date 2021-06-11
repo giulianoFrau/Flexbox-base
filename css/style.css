@@ -1,42 +1,44 @@
 * {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-  }
-  
-  .container {
-    background-color:#ccc;
-    padding:10px;
-    display: flex; /*prima proprieta per usare flexbox (display flex al padre)*/
-    flex-direction: row; /*default row,mette gli elementi in riga,column in colonna uno sotto l'altro*/
-    justify-content: space-between; /*definisce la posizione degli elementi sull MAIN AXIS(centro dx,sx con spazio se non c'e margin negli elementi come a riga 18)*/
-    align-items: center; /*definisce la posizione degli elementi sulla CROSS AXIS(alto,basso). gli elementi si posizionano al centro rispetto i2(cha ha altezza diversa 
-    rispetto agli altri item,riga 28) ,con flex-start all inizio e cosi via (prova da inspector se non ricordi)
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 1000px;
+  background-color: #ccc;
+  padding: 10px;
+  display: flex; /*prima proprieta per usare flexbox (display flex al padre)*/
+  flex-direction: row; /*default row,mette gli elementi in riga,column in colonna uno sotto l'altro*/
+  justify-content: space-between; /*definisce la posizione degli elementi sull MAIN AXIS(centro dx,sx con spazio se non c'e margin negli elementi come a riga 18)*/
+  align-items: center; /*definisce la posizione degli elementi sulla CROSS AXIS(alto,basso,centro) rispetto a un altro elemento stesso.
+   gli elementi si posizionano al centro rispetto i2(cha ha altezza diversarispetto agli altri item,riga 28) ,con flex-start all inizio e cosi via (prova da inspector se non ricordi)
     Di default e streth e tutti gli elementi saranno uguali xk tutti gli elementi eccetto 2 che è il nostro example item vogliono essere della stessa altezza di 2.
     se i2 ha la stessa altezza degli altri item l'effetto non si vede e l'align item potrebbe anche non essere utilizzato*/
-  }
+  flex-wrap: wrap; /*crea una nuova riga di elementi se quando riduco la finestra gli elementi superano il viewport*/
   
-  .item {
-    background-color:#f1425d;
-    padding:30px;
-    margin: 30px;
-    color:white;
-    font-size: 40px;
-    
-  }
+  align-content: flex-start; /*posiziona gli elementi all interno del div (alto centro basso)*/
+}
 
-  .i2{
-      height: 200px; /*dando solo l'altezza verranno allungati tutti gli elementi xk sono sullo stesso asse principale,
+.item {
+  background-color: #f1425d;
+  padding: 30px;  
+  margin: 30px;
+  color: white;
+  font-size: 40px;
+}
+
+.i2 {
+  height: 200px; /*dando solo l'altezza verranno allungati tutti gli elementi xk sono sullo stesso asse principale,
       usando sul container align-item (riga13)questo verrà risolto in quanto muoverà gli elementi sull asse X e cosi sara allungato solo il numero 2*/
-     /* flex-basis: 300px;/* larghezza elemento flex*/
-     /* flex-shrink: 0;/*riduzione elemento,cosi impostato non si riduce*/
-     flex:0 0 300px;/*best practice 0 crescita 0 riduzione 300px di larghezza*/
-  }
+  /* flex-basis: 300px;/* larghezza elemento flex*/
+  /* flex-shrink: 0;/*riduzione elemento,cosi impostato non si riduce*/
+  flex: 0 0 300px; /*best practice 0 crescita 0 riduzione 300px di larghezza*/
+}
 
-  .i4{
-      align-self:flex-end; /* a seconda di cosa si scrive come parametro si allinea lungo la CROSS (in alto basso o centro) con l'elemento piu alto presente nel container(i2 in questo esempio)
+.i4 {
+  /* align-self: flex-end; a seconda di cosa si scrive come parametro si allinea lungo la CROSS (in alto basso o centro) con l'elemento piu alto presente nel container(i2 in questo esempio)
        ha la stessa funzione dell align item presente a riga 13 ma questo prende il singolo elemento,se uso stretch sara della stessa dimensione dell elemento piu alto presente nel container*/
-      order:-1; /*valore inferiore a 0, fa si che l'elemento 4 passi come primo elemento*/
-      flex-grow: 1;
-  }
-  
+  order: -1; /*valore inferiore a 0, fa si che l'elemento 4 passi come primo elemento*/
+  flex-grow: 1;
+}
